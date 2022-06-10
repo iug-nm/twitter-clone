@@ -18,27 +18,13 @@ export default function Thread() {
         retweet: "5.2k",
         star: "17.8k",
     }
-    const test = {
-      user: {
-        name: 'Gui',
-        account_name: 'iug_nm',
-        time: 3
-      },
-      content: 'abcd',
-      controls: {
-        comment: '3',
-        retweet: "10",
-        star: "23"
-      }
-    }
     return(
         <div>
-            {/* <Article 
+            <Article 
             user = {user} 
             content = {content}
             controls = {controls}
-            /> */}
-            <Article props = {test} />
+            />
         </div>
     )
 }
