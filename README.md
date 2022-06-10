@@ -1,3 +1,3 @@
 ```
-This project is for pure training use
+This project is for pure training, no commercial use or anything
 ```
