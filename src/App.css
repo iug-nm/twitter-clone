@@ -10,8 +10,8 @@ body {
 }
 /* ----- Colors ----- */
 * {
-  background-color: black;
-  color: white;
+  background-color: #000;
+  color: #FFF;
 }
 /* ----- Display ----- */
 .App {
