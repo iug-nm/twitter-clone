@@ -18,7 +18,9 @@ body {
   margin: 0;
 }
 img,
-#footer > div {
+#footer > div,
+.post-user-infos h6,
+.navbar-account h6 {
   cursor: pointer;
 }
 /* ----- Colors ----- */
@@ -66,11 +68,16 @@ img,
   color: var(--grey);
   font-weight: 400;
 }
+.navbar-account > h6:hover,
+.post-user-infos > h6:hover {
+  text-decoration: underline;
+}
 .navbar-account > h6::before {
   content: '@';
 }
 /* ----- Content ----- */
 .site-content {
+  height: fit-content;
   border: var(--border-thin)
 }
 .post {

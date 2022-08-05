@@ -6,9 +6,9 @@ export default function Article(props) {
     return(
         <article className='post'>
            <User user = {props.user} />
-                <span>
+                <div className='post-content'>
                     <p>{props.content}</p>
-                </span>
+                </div>
             <Controls controls = {props.controls} />
         </article>
     )
