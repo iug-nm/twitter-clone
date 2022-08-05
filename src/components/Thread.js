@@ -7,10 +7,10 @@ import Article from './Article';
 
 export default function Thread() {
     const user = {
-          name: 'h',
-          img: 'https://mtv.mtvnimages.com/uri/mgid:ao:image:mtv.com:647022?quality=0.8&format=jpg&width=1440&height=810&.jpg',
-          account_name: 'halsey',
-          time: 2,
+        name: 'h',
+        img: 'https://mtv.mtvnimages.com/uri/mgid:ao:image:mtv.com:647022?quality=0.8&format=jpg&width=1440&height=810&.jpg',
+        account_name: 'halsey',
+        time: 2,
       }
     const content = 'I mean that\'s a very good opinion right here from @iug_nm';
     const controls = {
@@ -19,12 +19,10 @@ export default function Thread() {
         star: "17.8k",
     }
     return(
-        <div>
             <Article 
             user = {user} 
             content = {content}
             controls = {controls}
             />
-        </div>
     )
 }

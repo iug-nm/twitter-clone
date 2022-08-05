@@ -17,6 +17,10 @@
 body {
   margin: 0;
 }
+img,
+#footer > div {
+  cursor: pointer;
+}
 /* ----- Colors ----- */
 * {
   background-color: var(--black);
@@ -42,6 +46,7 @@ body {
 /* ----- Navbar ----- */
 #navbar {
   padding: 1rem;
+  text-align: end;
 }
 #site-logo > a > img {
   height: 25px;
@@ -120,7 +125,7 @@ body {
   border-radius: 7px;
   margin: 5% 0 0 5%;
 }
-#trends::before {
+#trends > div::before {
   content: '#';
 }
 #footer {

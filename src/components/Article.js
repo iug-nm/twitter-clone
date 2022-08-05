@@ -5,11 +5,11 @@ import User from './User';
 export default function Article(props) {
     return(
         <article className='post'>
-            <User user={props.test.user}/>
+           <User user = {props.user} />
                 <span>
-                    <p>{props.test.content}</p>
+                    <p>{props.content}</p>
                 </span>
-            <Controls controls={props.test.controls} />
+            <Controls controls = {props.controls} />
         </article>
     )
 }
