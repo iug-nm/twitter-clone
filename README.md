@@ -1,1 +1,1 @@
-    learning React & using GitBash
+    learning React & using git bash
