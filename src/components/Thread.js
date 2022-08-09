@@ -21,6 +21,12 @@ export default function Thread() {
                 />
             );
         })}
+
+        {/* {users.map((users) => {
+            return(
+                users.user
+            );
+        })}; */}
         </>
     );
 };
