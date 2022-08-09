@@ -29,11 +29,16 @@ export default function Thread() {
     return(
         <>
         {/* https://www.pluralsight.com/guides/load-and-render-json-data-into-react-components */}
-        {data.map((data, key) => {
+        {data.map((data) => {
             return(
-                <div key={key}>
-                    {data.content + ", " + data.user.name}
-                </div>
+                <Article
+                    user = {data.user}
+                    content = {data.content}
+                    controls = {data.controls}
+                />
+                // <div key={key}>
+                //     {data.content + ", " + data.user.name}
+                // </div>
             );
         })}
         </>
