@@ -3,7 +3,7 @@ export const posts = [
      // post_id = la date compacté à laquelle le post est créer 
      //+ d'autres informations evitant le dedoublement telles que le type de post etc
     {
-        author_id: 1,
+        account_name: "halsey",
         post: {
             post_id: "0908202212245",
             post_time: "09 08 2022 16:04:00",
@@ -16,7 +16,7 @@ export const posts = [
         },
     },
     {
-        author_id: 2,
+        account_name: "joy_crookes",
         post: {
             post_id: "09082022132548",
             post_time: "09 08 2022 16:05:00",
@@ -29,7 +29,7 @@ export const posts = [
         },
     },
     {
-        author_id: 2,
+        account_name: "sjokz",
         post: {
             post_id: "09082022134915",
             post_time: "09 08 2022 16:16:00",
