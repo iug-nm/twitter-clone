@@ -13,6 +13,8 @@ function App() {
     <div className="App">
       <Navbar />
       <div className='site-content'>
+        {/* A améliorer parce qu'il est actuellement impossible de render un element
+        en fonction de sa route sans render la navbar et la sidebar avec (login ?) */}
         <BrowserRouter>
           <Routes>
             <Route path='/' element={<Thread />} />
