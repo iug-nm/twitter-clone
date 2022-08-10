@@ -6,6 +6,11 @@ import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  /*NOTE 
+  Accueil = Thread,
+  Profil = Page d'affichage du profil (même si elle ne correspond à rien encore),
+  login = login 
+  */
   <React.StrictMode>
     <App />
   </React.StrictMode>

@@ -1,8 +1,11 @@
 import './App.css';
 import Navbar from './components/Navbar';
-import Profile from './components/Profile';
 import Sidebar from './components/Sidebar';
 import Thread from './components/Thread';
+import Profile from './components/Profile';
+import Login from './components/Login';
+
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
 
@@ -10,8 +13,13 @@ function App() {
     <div className="App">
       <Navbar />
       <div className='site-content'>
-        <Thread />
-        {/* <Profile /> */}
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<Thread />} />
+            <Route path='profile' element={<Profile />} />
+            <Route path='login' element={<Login />} />
+          </Routes>
+        </BrowserRouter>
       </div>
       <Sidebar />
     </div>

@@ -17,6 +17,7 @@ export default function Thread() {
             let content = posts[index];
             return(
                 <Article 
+                key = {index}
                     user = {users.user}
                     content = {content.post.post_content}
                     controls = {content.post.reactions}

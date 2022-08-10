@@ -6,6 +6,7 @@ export const users = [
             account_name: "halsey",
             account_description: "yup",
             account_background: "",
+            account_password: "$P$Bp1ylmAsVYhHACHiTgJFocPG/9qSqz.",
         },
     },
     {
@@ -15,6 +16,7 @@ export const users = [
             account_name: "joy_crookes",
             account_description: "zoomin'",
             account_background: "",
+            account_password: "$P$Bp1ylmAsVYhHACHiTgJFocPG/9qSqz.",
         },
     },
     {
@@ -24,6 +26,7 @@ export const users = [
             account_name: "sjokz",
             account_description: "sheeshn't",
             account_background: "",
+            account_password: "$P$Bp1ylmAsVYhHACHiTgJFocPG/9qSqz.",
         },
     },
 ]

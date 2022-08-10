@@ -20,11 +20,11 @@ export const posts = [
         post: {
             post_id: "09082022132548",
             post_time: "09 08 2022 16:05:00",
-            post_content: "I mean that's a very good opinion right here from @iug_nm",
+            post_content: "Wish you were mine you here now https://www.youtube.com/watch/a9fea894e",
             reactions: {
-                comment: 905,
-                retweet: "5.2k",
-                star: "17.8k",
+                comment: 152,
+                retweet: "456",
+                star: "5.4k",
             },
         },
     },
@@ -35,9 +35,9 @@ export const posts = [
             post_time: "09 08 2022 16:16:00",
             post_content: "I mean that's a very good opinion right here from @iug_nm",
             reactions: {
-                comment: 905,
-                retweet: "5.2k",
-                star: "17.8k",
+                comment: 17,
+                retweet: "24",
+                star: "478",
             },
         },
     },
