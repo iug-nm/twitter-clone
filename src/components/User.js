@@ -3,9 +3,27 @@ import React from 'react';
 export default function User(props) {
 
     // TODO Calculer la temps depuis lequel le tweet a été posté
-    let current_time = new Date().getTime();
-    let post_time = new Date(props.user.time);
-    let time_diff = current_time - post_time;
+
+    function timeformat(time) {
+        let current_time = new Date(); //renvoie automatiquement la date à laquelle l'objet est init
+        let post_time = new Date( Date.parse(time)); //time = props.posts
+        let difference = current_time - post_time
+        var res;
+
+        if (difference > 1000 && difference < 60000) { //secondes
+            res = Math.floor(difference / 1000) + 's';
+        } else if (difference < 3600000) { //minutes
+            res = Math.floor(difference / 1000 / 60) + 'm';
+        } else if (difference < 86400000) { //heure
+            res = Math.floor(difference / 1000 / 60 / 60) + 'h';
+        } else if (difference < 2592000000) { //jour
+            res = Math.floor(difference / 1000 / 60 / 60 / 24) + 'j';
+        } else if (difference > 31104000000) { //année
+            res = Math.floor(difference / 1000 / 60 / 60 / 24 / 365) + 'a';
+        }
+        // console.log(Math.floor((current_time - post_time) / 1000 / 60 / 60 / 24));
+        return res;
+    }
 
     return(
             <div className='post-user-infos'>
@@ -13,9 +31,9 @@ export default function User(props) {
                 Rendre la photo de profil et le h6 cliquable pour accéder au panel des profils
                 <a href='reactjs.org' target='_blank'><img alt={props.user.name} src = {props.user.img}/></a> 
                 */}
-                <img alt={props.user.name} src = {props.user.img}/>
+                <img className='profile-photo' alt='' src={props.user.img}/>
                 <h4>{props.user.name}</h4>
-                <h6>{props.user.account_name} - {props.user.time}m</h6>
+                <h6>{props.user.account_name} - {timeformat(props.posts)}</h6>
             </div>
     )
 }

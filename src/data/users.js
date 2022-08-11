@@ -22,7 +22,7 @@ export const users = [
     {
         user: {
             name: "Eefje Depoortere",
-            img: "https://pbs.twimg.com/profile_images/1485594231574048770/_oGBGFoI_400x400.jpg",
+            img: "", //si pas d'image -> background-color: grey;
             account_name: "sjokz",
             account_description: "sheeshn't",
             account_background: "",

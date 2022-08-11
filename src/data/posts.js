@@ -6,7 +6,7 @@ export const posts = [
         account_name: "halsey",
         post: {
             post_id: "0908202212245",
-            post_time: "09 08 2022 16:04:00",
+            post_time: "2022-08-11T14:03:00",
             post_content: "I mean that's a very good opinion right here from @iug_nm",
             reactions: {
                 comment: 905,
@@ -19,7 +19,7 @@ export const posts = [
         account_name: "joy_crookes",
         post: {
             post_id: "09082022132548",
-            post_time: "09 08 2022 16:05:00",
+            post_time: "2021-08-04T13:58:00",
             post_content: "Wish you were mine you here now https://www.youtube.com/watch/a9fea894e",
             reactions: {
                 comment: 152,
@@ -32,7 +32,7 @@ export const posts = [
         account_name: "sjokz",
         post: {
             post_id: "09082022134915",
-            post_time: "09 08 2022 16:16:00",
+            post_time: "2022-08-04T12:49:30",
             post_content: "I mean that's a very good opinion right here from @iug_nm",
             reactions: {
                 comment: 17,

@@ -11,14 +11,14 @@ import { posts } from '../data/posts'
 export default function Thread() {
     return(
         <>
-        {/* https://stackoverflow.com/questions/72515709/react-map-returning-value */}
         {/* https://stackoverflow.com/questions/41311322/how-can-i-map-over-two-arrays-at-the-same-time */}
         {users.map((users, index) => {
             let content = posts[index];
             return(
                 <Article 
-                key = {index}
+                    key = {index}
                     user = {users.user}
+                    posts = {content.post.post_time}
                     content = {content.post.post_content}
                     controls = {content.post.reactions}
                 />
