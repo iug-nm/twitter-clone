@@ -4,7 +4,7 @@ export default function User(props) {
 
     function timeformat(time) {
         let current_time = new Date();
-        let post_time = new Date( Date.parse(time));
+        let post_time = new Date(Date.parse(time));
         let difference = current_time - post_time
         var res;
 

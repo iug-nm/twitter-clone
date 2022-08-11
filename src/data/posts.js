@@ -6,7 +6,7 @@ export const posts = [
         account_name: "halsey",
         post: {
             post_id: "0908202212245",
-            post_time: "2022-08-11T14:03:00",
+            post_time: "2022-08-11T14:16:00",
             post_content: "I mean that's a very good opinion right here from @iug_nm",
             reactions: {
                 comment: 905,
@@ -32,7 +32,7 @@ export const posts = [
         account_name: "sjokz",
         post: {
             post_id: "09082022134915",
-            post_time: "2022-08-04T12:49:30",
+            post_time: "2022-08-04T20:55:30",
             post_content: "I mean that's a very good opinion right here from @iug_nm",
             reactions: {
                 comment: 17,
