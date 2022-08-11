@@ -2,23 +2,21 @@ import React from 'react';
 
 export default function User(props) {
 
-    // TODO Calculer la temps depuis lequel le tweet a été posté
-
     function timeformat(time) {
-        let current_time = new Date(); //renvoie automatiquement la date à laquelle l'objet est init
-        let post_time = new Date( Date.parse(time)); //time = props.posts
+        let current_time = new Date();
+        let post_time = new Date( Date.parse(time));
         let difference = current_time - post_time
         var res;
 
-        if (difference > 1000 && difference < 60000) { //secondes
+        if (difference > 1000 && difference < 60000) { //second
             res = Math.floor(difference / 1000) + 's';
-        } else if (difference < 3600000) { //minutes
+        } else if (difference < 3600000) { //minute
             res = Math.floor(difference / 1000 / 60) + 'm';
-        } else if (difference < 86400000) { //heure
+        } else if (difference < 86400000) { //hour
             res = Math.floor(difference / 1000 / 60 / 60) + 'h';
-        } else if (difference < 2592000000) { //jour
+        } else if (difference < 2592000000) { //day
             res = Math.floor(difference / 1000 / 60 / 60 / 24) + 'j';
-        } else if (difference > 31104000000) { //année
+        } else if (difference > 31104000000) { //year
             res = Math.floor(difference / 1000 / 60 / 60 / 24 / 365) + 'a';
         }
         // console.log(Math.floor((current_time - post_time) / 1000 / 60 / 60 / 24));
