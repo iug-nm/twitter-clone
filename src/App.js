@@ -10,6 +10,8 @@ import Ui from './components/Ui';
 
 import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
 
+let id = "iug_nm";
+
 const AppLayout = () => (
   <>
   <Navbar />
@@ -31,7 +33,7 @@ function App() {
             <Route path='ui' element={<Ui />} />
             <Route element={<AppLayout />}>
               <Route path='/' element={<Thread />} />
-              <Route path='profile' element={<Profile />} />
+              <Route path={'profile/'+id} element={<Profile />} />
             </Route>
           </Routes>
         </BrowserRouter>

@@ -32,7 +32,9 @@ input[type='submit'],
 .post-controls svg {
   cursor: pointer;
 }
-
+.profile-nav {
+  text-decoration: none;
+}
 /* ---------- ---------- ---------- */
 /* ----- Colors ----- */
 /* ---------- ---------- ---------- */

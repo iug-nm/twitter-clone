@@ -7,7 +7,8 @@ export default function Article(props) {
         <article className='post' id={props.id}>
            <User 
                 user = {props.user}
-                posts = {props.posts} />
+                posts = {props.posts} 
+            />
                 <div className='post-content'>
                     <p>{props.content}</p>
                 </div>

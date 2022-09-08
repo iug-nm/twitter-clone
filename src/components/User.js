@@ -23,14 +23,17 @@ export default function User(props) {
     }
 
     return(
-            <div className='post-user-infos'>
-                {/* 
-                Rendre la photo de profil et le h6 cliquable pour accéder au panel des profils
-                <a href='reactjs.org' target='_blank'><img alt={props.user.name} src = {props.user.img}/></a> 
-                */}
-                <img className='profile-photo' alt='' src={props.user.img}/>
-                <h4>{props.user.name}</h4>
+        <div className='post-user-infos'>
+            {/* 
+            Rendre la photo de profil et le h6 cliquable pour accéder au panel des profils
+            <a href='reactjs.org' target='_blank'><img alt={props.user.name} src = {props.user.img}/></a> 
+            */}
+            <img className='profile-photo' alt='' src={props.user.img}/>
+            <h4>{props.user.name}</h4>
+            <a href={"./profile/"+props.user.account_name} className='profile-nav'>
                 <h6>{props.user.account_name} - {timeformat(props.posts)}</h6>
-            </div>
+            </a>
+        </div>
+           
     )
 }
