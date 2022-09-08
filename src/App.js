@@ -5,6 +5,9 @@ import Thread from './components/Thread';
 import Profile from './components/Profile';
 import Login from './components/Login';
 
+import Counter from './components/Counter';
+import Ui from './components/Ui';
+
 import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
 
 const AppLayout = () => (
@@ -21,11 +24,11 @@ function App() {
 
   return (
     <div className="App">
-        {/* A améliorer parce qu'il est actuellement impossible de render un element
-        en fonction de sa route sans render la navbar et la sidebar avec (login ?) */}
         <BrowserRouter>
           <Routes>
             <Route path='login' element={<Login />} />
+            <Route path='counter' element={<Counter />} />
+            <Route path='ui' element={<Ui />} />
             <Route element={<AppLayout />}>
               <Route path='/' element={<Thread />} />
               <Route path='profile' element={<Profile />} />

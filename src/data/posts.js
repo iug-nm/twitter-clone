@@ -1,7 +1,5 @@
 export const posts = [
-     // l'id de l'auteur est renseigné au moment où ce dernier crée un post
-     // post_id = la date compacté à laquelle le post est créer 
-     //+ d'autres informations evitant le dedoublement telles que le type de post etc
+    //BUG pas de mise à jour du nombre si le format reste le même ?
     {
         account_name: "halsey",
         post: {
@@ -9,9 +7,9 @@ export const posts = [
             post_time: "2022-08-11T14:16:00",
             post_content: "I mean that's a very good opinion right here from @iug_nm",
             reactions: {
-                comment: 905,
-                retweet: "5.2k",
-                star: "17.8k",
+                comment: 21950,
+                retweet: 514850,
+                star: 19950,
             },
         },
     },
@@ -23,8 +21,8 @@ export const posts = [
             post_content: "Wish you were mine you here now https://www.youtube.com/watch/a9fea894e",
             reactions: {
                 comment: 152,
-                retweet: "456",
-                star: "5.4k",
+                retweet: 941,
+                star: 11249,
             },
         },
     },
@@ -36,8 +34,8 @@ export const posts = [
             post_content: "I mean that's a very good opinion right here from @iug_nm",
             reactions: {
                 comment: 17,
-                retweet: "24",
-                star: "478",
+                retweet: 253,
+                star: 478,
             },
         },
     },

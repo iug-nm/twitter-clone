@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { users } from '../data/users';
+// import { users } from '../data/users';
 
 export default function Login() {
     return(
