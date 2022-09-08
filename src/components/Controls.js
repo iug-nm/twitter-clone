@@ -7,6 +7,10 @@ export default function Controls(props) {
     const [liked, setLiked] = useState(false);
     const [likedColor, setColor] = useState("white");
 
+    const [retweets, setRetweet] = useState(props.controls.retweet);
+    const [retweeted, setRetweeted] = useState(false);
+    const [retweetColor, setRetweetColor] = useState("white");
+
     const handleLikes = (liked) => {
         if (!liked) {
             setLike(likes + 1);
@@ -16,6 +20,17 @@ export default function Controls(props) {
             setColor("white");
         }
         setLiked(!liked);
+    }
+
+    const handleRetweets = (retweeted) => {
+        if (!retweeted) {
+            setRetweet(retweets + 1);
+            setRetweetColor("#34d399")
+        } else {
+            setRetweet(retweets - 1);
+            setRetweetColor("white");
+        }
+        setRetweeted(!retweeted);
     }
 
     const shorten = (number) => {
@@ -42,7 +57,7 @@ export default function Controls(props) {
     return(
         <div className="post-controls">
             <span>{shorten(props.controls.comment)} <AiOutlineComment /></span>
-            <span>{shorten(props.controls.retweet)} <AiOutlineRetweet /></span>
+            <span onClick={() => handleRetweets(retweeted)} style={{ color: retweetColor}}>{shorten(retweets)} <AiOutlineRetweet /></span>
             <span onClick={() => handleLikes(liked)} style={{ color: likedColor}}>{shorten(likes)} <AiFillHeart /></span>
         </div>
     )

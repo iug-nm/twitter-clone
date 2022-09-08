@@ -30,7 +30,7 @@ export const posts = [
         account_name: "sjokz",
         post: {
             post_id: "09082022134915",
-            post_time: "2022-08-04T20:55:30",
+            post_time: "2022-09-05T13:24:06",
             post_content: "I mean that's a very good opinion right here from @iug_nm",
             reactions: {
                 comment: 17,
