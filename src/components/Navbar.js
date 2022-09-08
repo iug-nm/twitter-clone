@@ -21,7 +21,7 @@ export default function Navbar() {
             </div>
             <div className='navbar-account'>
                 <img alt='' src='https://cdn.pixabay.com/photo/2020/11/25/14/38/girl-5775940_960_720.jpg'/>
-                <a>Julius in the Coolius</a>
+                <h3>Julius in the Coolius</h3>
                 <h6>iug_nm</h6>
             </div>
         </div>

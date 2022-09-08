@@ -29,4 +29,14 @@ export const users = [
             account_password: "$P$Bp1ylmAsVYhHACHiTgJFocPG/9qSqz.",
         },
     },
+    {
+        user: {
+            name: "Julius in the Coolius",
+            img: "https://pbs.twimg.com/profile_images/1448753262535004168/dRJQaiqb.jpg",
+            account_name: "iug_nm",
+            account_description: "React & Laravel Enjoyer",
+            account_background: "",
+            account_password: "$P$Bp1ylmAsVYhHACHAFAZgJFocPG/9qSqz.",
+        },
+    },
 ]

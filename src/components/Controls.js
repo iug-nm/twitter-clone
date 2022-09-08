@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { AiFillHeart, AiOutlineRetweet, AiOutlineComment } from 'react-icons/ai';
-import { IconContext } from 'react-icons';
-
 
 // https://react-icons.github.io/react-icons/icons?name=fa
 export default function Controls(props) {
@@ -10,7 +8,6 @@ export default function Controls(props) {
     const [likedColor, setColor] = useState("white");
 
     const handleLikes = (liked) => {
-        //au clic: colorer l'icone 
         if (!liked) {
             setLike(likes + 1);
             setColor("#e11d48");
@@ -20,6 +17,7 @@ export default function Controls(props) {
         }
         setLiked(!liked);
     }
+
     const shorten = (number) => {
         number = number.toString().replace(/[^0-9.]/g, '');
         if (number < 1000) {
@@ -44,8 +42,8 @@ export default function Controls(props) {
     return(
         <div className="post-controls">
             <span>{shorten(props.controls.comment)} <AiOutlineComment /></span>
-            <span>{shorten(props.controls.retweet)} <IconContext.Provider value={{color: "#16a34a"}}><AiOutlineRetweet /></IconContext.Provider></span>
-            <span onClick={() => handleLikes(liked)}>{shorten(likes)} <IconContext.Provider value={{color: likedColor}}><AiFillHeart /></IconContext.Provider></span>
+            <span>{shorten(props.controls.retweet)} <AiOutlineRetweet /></span>
+            <span onClick={() => handleLikes(liked)} style={{ color: likedColor}}>{shorten(likes)} <AiFillHeart /></span>
         </div>
     )
 }

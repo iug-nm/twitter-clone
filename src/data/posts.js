@@ -39,4 +39,17 @@ export const posts = [
             },
         },
     },
+    {
+        account_name: "iug_nm",
+        post: {
+            post_id: "08092022143545",
+            post_time: "2022-09-08T14:49:30",
+            post_content: "bonjour tout le monde mais en version 2 et avec un @tag et un 'lien' pour tester.com",
+            reactions: {
+                comment: 2,
+                retweet: 1,
+                star: 4,
+            },
+        },
+    },
 ]

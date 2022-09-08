@@ -19,7 +19,6 @@ export default function User(props) {
         } else if (difference > 31104000000) { //year
             res = Math.floor(difference / 1000 / 60 / 60 / 24 / 365) + 'a';
         }
-        // console.log(Math.floor((current_time - post_time) / 1000 / 60 / 60 / 24));
         return res;
     }
 
