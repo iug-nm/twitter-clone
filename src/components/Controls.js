@@ -3,21 +3,27 @@ import { AiFillHeart, AiOutlineRetweet, AiOutlineComment } from 'react-icons/ai'
 
 // https://react-icons.github.io/react-icons/icons?name=fa
 export default function Controls(props) {
+    
+    const controls_base = "grey";
+    const like_clicked = "#e11d48";
+    const retweet_clicked = "#34d399";
+
     const [likes, setLike] = useState(props.controls.star);
     const [liked, setLiked] = useState(false);
-    const [likedColor, setColor] = useState("white");
+    const [likedColor, setColor] = useState(controls_base);
 
     const [retweets, setRetweet] = useState(props.controls.retweet);
     const [retweeted, setRetweeted] = useState(false);
-    const [retweetColor, setRetweetColor] = useState("white");
+    const [retweetColor, setRetweetColor] = useState(controls_base);
+
 
     const handleLikes = (liked) => {
         if (!liked) {
             setLike(likes + 1);
-            setColor("#e11d48");
+            setColor(like_clicked);
         } else {
             setLike(likes - 1);
-            setColor("white");
+            setColor(controls_base);
         }
         setLiked(!liked);
     }
@@ -25,10 +31,10 @@ export default function Controls(props) {
     const handleRetweets = (retweeted) => {
         if (!retweeted) {
             setRetweet(retweets + 1);
-            setRetweetColor("#34d399")
+            setRetweetColor(retweet_clicked)
         } else {
             setRetweet(retweets - 1);
-            setRetweetColor("white");
+            setRetweetColor(controls_base);
         }
         setRetweeted(!retweeted);
     }

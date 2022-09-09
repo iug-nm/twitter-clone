@@ -13,8 +13,10 @@ body {
   --shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.2);
   --border-thin: 1px solid rgba(128, 128, 128, 0.13);
 
+  --primary: #FFCE4F;
   --light: white;
   --grey: grey;
+  --light-grey: rgb(219, 219, 219);
   --grey-dark: #222;
   --black: #000;
 }
@@ -39,22 +41,20 @@ input[type='submit'],
 /* ----- Colors ----- */
 /* ---------- ---------- ---------- */
 
-*:not(path, svg) {
-  background-color: var(--black);
-  color: var(--light);
-}
 .profile-photo {
   background-color: var(--void);
 }
 #footer > div,
-.navbar-account > h6 {
+.navbar-account-details h6,
+.profile-nav > h6,
+.post-user-infos > h6 {
   color: var(--grey);
 }
-#trends {
-  background-color: var(--grey);
+.profile-nav > h4 {
+  color: var(--black);
 }
 #sidebar > #searchbar > input[type="search"] {
-  background-color: var(--grey-dark);
+  background-color: var(--light-grey);
 }
 /* ----- Display ----- */
 .App {
@@ -88,6 +88,18 @@ input[type='submit'],
   font-weight: 600;
   padding: 0.5rem;
 }
+.navbar-account {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.navbar-account-details {
+  display: flex;
+  flex-direction: column;
+}
+.navbar-account-details > * {
+  margin: 0 5px;
+}
 .navbar-account > img {
   border-radius: 100%;
   height: 50px;
@@ -97,11 +109,12 @@ input[type='submit'],
 .navbar-account > h6 {
   font-weight: 400;
 }
-.navbar-account > h6:hover,
-.post-user-infos > h6:hover {
+.navbar-account-details > h6:hover,
+.profile-nav > h6:hover,
+.profile-nav > h4:hover {
   text-decoration: underline;
 }
-.navbar-account > h6::before {
+.navbar-account-details h6::before {
   content: '@';
 }
 /* ----- Content ----- */
@@ -112,32 +125,22 @@ input[type='submit'],
   padding: 1rem;
   border-bottom: var(--border-thin)
 }
-.post-user-infos {
+.profile-nav {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-.post-user-infos > img {
+.profile-photo {
   height: 50px;
   width: 50px;
   border-radius: 50%;
   object-fit: cover;
 }
-.post-user-infos > h4 {
+.profile-nav h4 {
   margin: 0 3%;
 }
-.post-user-infos > h6 {
-  color: var(--grey);
-  font-style: italic;
-  font-weight: 400;
-  margin-left: -0.5rem;
-  margin-top: 1.7rem;
-}
-.post-user-infos > h6::before {
+.profile-nav > h6::before {
   content: '@';
-}
-.post p {
-  padding: 0.5rem;
 }
 .post-controls {
   display: flex;
@@ -150,6 +153,7 @@ input[type='submit'],
 #sidebar > #searchbar > input[type="search"] {
   outline: none;
   border: none;
+  width: 13vw;
   border-radius: 50px;
   padding: 0.5rem 1rem;
   margin-top: 5%;
@@ -162,6 +166,34 @@ input[type='submit'],
   content: '#';
 }
 #footer {
+  margin-top: 1rem;
   display: flex;
   flex-direction: row;
+}
+#footer > div:hover {
+  text-decoration: underline;
+}
+/* ----- Login ----- */
+#login {
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login-form {
+  width: 15vw;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+}
+.login-form input {
+  margin: 2% 0;
+  width: 100%;
+  padding: 0.5rem 0.5rem;
+  border: none;
+}
+.login-form input:focus {
+  outline: none;
 }

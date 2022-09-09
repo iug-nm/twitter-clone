@@ -16,13 +16,12 @@ export default function Navbar() {
                     <a>Settings</a>
                 </nav>
             </div>
-            <div>
-                <a>Tweet</a>
-            </div>
             <div className='navbar-account'>
                 <img alt='' src='https://cdn.pixabay.com/photo/2020/11/25/14/38/girl-5775940_960_720.jpg'/>
-                <h3>Julius in the Coolius</h3>
-                <h6>iug_nm</h6>
+                <div className='navbar-account-details'>
+                    <h3>Julius in the Coolius</h3>
+                    <h6>iug_nm</h6>
+                </div>
             </div>
         </div>
     )
