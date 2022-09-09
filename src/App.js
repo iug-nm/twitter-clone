@@ -33,7 +33,7 @@ function App() {
             <Route path='ui' element={<Ui />} />
             <Route element={<AppLayout />}>
               <Route path='/' element={<Thread />} />
-              <Route path={'profile/'+id} element={<Profile />} />
+              <Route path={'profile/'+id} element={<Profile user={id} />} />
             </Route>
           </Routes>
         </BrowserRouter>
