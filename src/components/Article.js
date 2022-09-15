@@ -40,7 +40,7 @@ export default function Article(props) {
                     message.appendChild(node);
                     message.innerHTML += _content[1];
                 });
-                document.querySelector('.post-content').appendChild(message);
+                document.querySelector("article > a[href='./profile/" + props.user.account_name + "'] + .post-content").appendChild(message);
             }
         });
     }
