@@ -5,10 +5,10 @@ export const posts = [
         post: {
             post_id: "0908202212245",
             post_time: "2022-08-11T14:16:00",
-            post_content: "I mean that's a very good opinion right here from @iug_nm",
+            post_content: "I mean that's a very.de good opinion right here from @iug_nm",
             reactions: {
                 comment: 21950,
-                retweet: 514850,
+                retweet: 51850,
                 star: 19950,
             },
         },
@@ -18,7 +18,7 @@ export const posts = [
         post: {
             post_id: "09082022132548",
             post_time: "2021-08-04T13:58:00",
-            post_content: "Wish you were mine you here now https://www.youtube.com/watch/a9fea894e",
+            post_content: "Wish you were mine out here now https://www.youtube.com/watch/a9fea894e",
             reactions: {
                 comment: 152,
                 retweet: 941,
@@ -44,7 +44,7 @@ export const posts = [
         post: {
             post_id: "08092022143545",
             post_time: "2022-09-08T14:49:30",
-            post_content: "bonjour tout le monde mais en version 2 et avec un @tag et un 'lien' pour tester.com",
+            post_content: "bonjour tout le monde mais en version 2 et avec un @tag et un 'lien' pour https://www.youtube.com/watch/a9fea894e",
             reactions: {
                 comment: 2,
                 retweet: 1,
