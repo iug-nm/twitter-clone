@@ -36,16 +36,15 @@ export default function Article(props) {
                         'href': urlCleaner(elem),
                     });
                     
-                    message.innerHTML += _content[0];
+                    message.innerHTML = _content[0] + '';
                     message.appendChild(node);
                     message.innerHTML += _content[1];
-                    console.log(message);
                 });
+                document.querySelector('.post-content').appendChild(message);
             }
         });
     }
 
-    finder(props.content);
 
     return(
         <article className='post' id={props.id}>
@@ -54,7 +53,7 @@ export default function Article(props) {
                 posts = {props.posts} 
             />
                 <div className='post-content'>
-                    {props.content}
+                    {finder(props.content)}
                 </div>
             <Controls controls = {props.controls} />
         </article>
