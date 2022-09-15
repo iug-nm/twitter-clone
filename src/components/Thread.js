@@ -5,9 +5,6 @@ import Article from './Article';
 import { users } from '../data/users'
 import { posts } from '../data/posts'
 
-// TODO Si c'est un lien faire le style correspondant 
-// TODO Si c'est une mention faire le style correspondant aussi 
-
 export default function Thread() {
 
     return(
