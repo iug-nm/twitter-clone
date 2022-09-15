@@ -4,24 +4,48 @@ import User from './User';
 
 export default function Article(props) {
 
-    const wrap = (content, target, wrap, tagged) => {
-        let _content = content.split(target);
-        return _content[0] + "<" + wrap + " href='" + target + "' class='" + tagged + "'>" + target + "</" + wrap + ">" + _content[1];
-    }
-
-    const highlight = (content, regex, replace, tagged) => {
-        let result = content.match(regex);
-
-        if (result != null) {
-
-            for (let i = 0; i < result.length; i++) {
-                console.log(result[i]);
-                result = result.toString().replace(result[i], wrap(content, result[i], replace, tagged));
-            }
+    const setAttributes = (element, attributes) => {
+        for (let key in attributes) {
+            element.setAttribute(key, attributes[key]);
         }
-        return result;
     }
-    
+
+    const urlCleaner = (url) => {
+        let cleanURL = url.replace('https://www.', '');
+        cleanURL = url.replace('@', '');
+        return cleanURL;
+    }
+
+    const finder = (content) => {
+        const reg = [
+            /(?:^|[^a-zA-Z0-9_@])(@)(?!\.)([a-zA-Z0-9_\.]{1,15})(?:\b(?!@)|$)/g,
+            /[-a-zA-Z0-9@:%_\+.~#?&/=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi
+        ];
+
+        reg.forEach((e) => {
+            let res = content.match(e);
+            let _content = content.split(res);
+            let message = document.createElement('p');
+
+            if (res != null) {
+                res.forEach((elem) => {
+                    let node = document.createElement('a');
+                    node.innerHTML = elem;
+                    setAttributes(node, {
+                        'class': 'linked',
+                        'href': urlCleaner(elem),
+                    });
+                    
+                    message.innerHTML += _content[0];
+                    message.appendChild(node);
+                    message.innerHTML += _content[1];
+                    console.log(message);
+                });
+            }
+        });
+    }
+
+    finder(props.content);
 
     return(
         <article className='post' id={props.id}>
@@ -30,7 +54,7 @@ export default function Article(props) {
                 posts = {props.posts} 
             />
                 <div className='post-content'>
-                    <p>{highlight(props.content, /(?:^|[^a-zA-Z0-9_@])(@)(?!\.)([a-zA-Z0-9_\.]{1,15})(?:\b(?!@)|$)/g, "a", "mention")}</p>
+                    {props.content}
                 </div>
             <Controls controls = {props.controls} />
         </article>
