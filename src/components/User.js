@@ -23,7 +23,7 @@ export default function User(props) {
     }
 
     return(
-            <a href={"./profile/"+props.user.account_name} className='profile-nav'>
+            <a href={props.user.account_name} className='profile-nav'>
                 <img className='profile-photo' alt='' src={props.user.img}/>
                 <h4>{props.user.name}</h4>
                 <h6>{props.user.account_name} - {timeformat(props.posts)}</h6>
