@@ -7,7 +7,7 @@ export default function Sidebar() {
                 <input type="search" />
             </div>
             <div id="footer">
-                <div>Terms of Services</div>
+                <div><a href='terms'>Terms of Services</a></div>
                 <div>Privacy Policy</div>
                 <div>Cookie Policy</div>
                 <div>Accessibility</div>

@@ -5,7 +5,7 @@ export default function Navbar() {
     return(
         <div id="navbar">
             <div id="site-logo">
-                <a href='http://twitter.com'><img alt='logo' src='https://clipartcraft.com/images/white-twitter-logo-icon-8.png' /></a>
+                <a href='http://localhost:3000/'><img alt='logo' src='https://clipartcraft.com/images/white-twitter-logo-icon-8.png' /></a>
             </div>
             <div id="site-menu">
                 <nav>

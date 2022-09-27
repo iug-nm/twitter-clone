@@ -52,4 +52,17 @@ export const posts = [
             },
         },
     },
+    {
+        account_name: "iug_nm",
+        post: {
+            post_id: "23092022145953",
+            post_time: "2022-09-23T14:59:45",
+            post_content: "Ayooooo",
+            reactions: {
+                comment: 0,
+                retweet: 0,
+                star: 1,
+            },
+        },
+    },
 ]

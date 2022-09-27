@@ -4,10 +4,10 @@ import Sidebar from './components/Sidebar';
 import Thread from './components/Thread';
 import Profile from './components/Profile';
 import Login from './components/Login';
+import Terms from './components/Terms';
 
 import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
-
-let id = "iug_nm";
+import { users } from './data/users';
 
 const AppLayout = () => (
   <>
@@ -28,7 +28,14 @@ function App() {
             <Route path='login' element={<Login />} />
             <Route element={<AppLayout />}>
               <Route path='/' element={<Thread />} />
-              <Route path={'profile/'+id} element={<Profile user={id} />} />
+              {users.map((users) => {
+                return <Route 
+                        path={'/' + users.account_name} 
+                        element = {<Profile user = {users} />} 
+                        key = {users.account_name}
+                      />
+              })}
+              <Route path='terms' element={<Terms />} />
             </Route>
           </Routes>
         </BrowserRouter>
