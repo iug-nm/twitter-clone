@@ -9,7 +9,6 @@ export default function Navbar() {
             </div>
             <div id="site-menu">
                 <nav>
-                    <a>Home</a>
                     <a>Notifications</a>
                     <a>Messages</a>
                     <a>Profile</a>

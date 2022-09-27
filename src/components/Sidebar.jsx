@@ -8,12 +8,12 @@ export default function Sidebar() {
             </div>
             <div id="footer">
                 <div><a href='terms'>Terms of Services</a></div>
-                <div>Privacy Policy</div>
-                <div>Cookie Policy</div>
-                <div>Accessibility</div>
-                <div>Ads info</div>
-                <div>More</div>
-                <div>@2022 Gui, Inc.</div>
+                <div><a href='privacy'>Privacy Policy</a></div>
+                <div><a href='cookies'>Cookie Policy</a></div>
+                <div><a href='accessibility'>Accessibility</a></div>
+                <div><a href='ads'>Ads info</a></div>
+                <div><a href='more'>More</a></div>
+                <div><a href='me'>@2022 Gui, Inc.</a></div>
             </div>
         </div>
     )

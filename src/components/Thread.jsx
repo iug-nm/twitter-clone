@@ -18,7 +18,14 @@ export default function Thread() {
             if (res != null) {
                 res.forEach((elem) => {
                     content = content.split(elem);
-                    content = content[0] + " <a " + ( url ? "target='_blank'" : '') + "href='" + elem.replace('@', '') + "' class='link'>" + elem.replace(/^(http|https):\/\/www./, '') + "</a>" + content[1];
+                    content = content[0] 
+                                + " <a " 
+                                + ( url ? "target='_blank'" : '') 
+                                + "href='" + elem.replace('@', '') 
+                                + "' class='link'>" 
+                                + elem.replace(/^(http|https):\/\/www./, '') 
+                                + "</a>" 
+                                + content[1];
                 });
             }
             url = true;
@@ -42,30 +49,6 @@ export default function Thread() {
                 />
             )
         })}
-
-        {console.log(users.map((user, key) => {
-            return (
-                <>
-                    {user.account_password}
-                </>
-            )
-        }))}
-
-
-    {/* {users.forEach((e) => {
-            posts.forEach((el) => {
-                if (e.account_name === el.account_name) {
-                    return <Article 
-                                user = {el.account_name}
-                                posts = {el.post.post_time}
-                                content = {el.post.post_content}
-                                controls = {el.post.reactions}
-                            />
-                } else {
-                    console.log('ça n\'as pas marché');
-                }
-            });
-        })} */}
         </>
     );
 };

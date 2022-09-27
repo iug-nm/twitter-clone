@@ -91,8 +91,8 @@ input[type='submit'],
   text-align: end;
 }
 #site-logo > a > img {
-  height: 35px;
-  width: 35px;
+  height: 55px;
+  width: 55px;
 }
 #site-menu > nav {
   display: flex;
