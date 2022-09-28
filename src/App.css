@@ -67,7 +67,7 @@ input[type='submit'],
 
 .App {
   display: grid;
-  grid-template-columns: 10% 1fr 1fr 1fr 10%;
+  grid-template-columns: 10% repeat(3, 26.6%) 10%;
 }
 #navbar {
   grid-column-start: 2;

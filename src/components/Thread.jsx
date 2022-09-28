@@ -6,32 +6,44 @@ import { posts } from '../data/posts'
 
 export default function Thread() {
 
-    const linkWrap = (content) => {
+    const href = (url, target) => {
+        let res;
+        if (!url) {
+            res = target.replace('@', '');
+        } else if (!/^(http|https):\/\/www./.test(target)) {
+            res = 'https://'+target;
+        } else {
+            res = target;
+        }
+        return res;
+    }
+
+    const wrap = (content) => {
         let url = false;
         const reg = [
             /(?:^|[^a-zA-Z0-9_@])(@)(?!\.)([a-zA-Z0-9_.]{1,15})(?:\b(?!@)|$)/g, //regex des mentions
             /[-a-zA-Z0-9@:%_+.~#?&/=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_+.~#?&//=]*)?/gi //regex des liens
         ];
-
         reg.forEach((e) => {
             let res = content.match(e);
             if (res != null) {
                 res.forEach((elem) => {
                     content = content.split(elem);
-                    content = content[0] 
-                                + " <a " 
-                                + ( url ? "target='_blank'" : '') 
-                                + "href='" + elem.replace('@', '') 
-                                + "' class='link'>" 
-                                + elem.replace(/^(http|https):\/\/www./, '') 
-                                + "</a>" 
+                    content = content[0]
+                                + " <a "
+                                + ( url ? "target='_blank'" : '')
+                                + "href='" + href(url, elem)
+                                + "' class='link'>"
+                                + elem.replace(/^(http|https):\/\/www./, '')
+                                + "</a>"
                                 + content[1];
                 });
             }
             url = true;
         });
-        let p = document.createElement('p');
-        p.innerHTML = content;
+        return (
+            <div dangerouslySetInnerHTML={{__html:content}}></div> // https://stackoverflow.com/questions/43268825/react-how-to-return-and-string-of-html
+        )
     }
 
     return(
@@ -44,7 +56,7 @@ export default function Thread() {
                     id = {content.post.post_time+'-'+index}
                     user = {user}
                     posts = {content.post.post_time}
-                    content = {content.post.post_content}
+                    content = {wrap(content.post.post_content)}
                     controls = {content.post.reactions}
                 />
             )

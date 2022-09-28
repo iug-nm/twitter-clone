@@ -5,7 +5,7 @@ export const posts = [
         post: {
             post_id: "0908202212245",
             post_time: "2022-08-11T14:16:00",
-            post_content: "I mean that's a very.de good opinion right here from @iug_nm",
+            post_content: "I mean that's a ants.gouv.fr good opinion right here from @joy_crookes",
             reactions: {
                 comment: 21950,
                 retweet: 51850,
