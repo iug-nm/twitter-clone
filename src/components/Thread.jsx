@@ -21,8 +21,8 @@ export default function Thread() {
     const wrap = (content) => {
         let url = false;
         const reg = [
-            /(?:^|[^a-zA-Z0-9_@])(@)(?!\.)([a-zA-Z0-9_.]{1,15})(?:\b(?!@)|$)/g, //regex des mentions
-            /[-a-zA-Z0-9@:%_+.~#?&/=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_+.~#?&//=]*)?/gi //regex des liens
+            /(?:^|[^a-zA-Z0-9_@])(@)(?!\.)([a-zA-Z0-9_.]{1,15})(?:\b(?!@)|$)/g,
+            /[-a-zA-Z0-9@:%_+.~#?&/=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_+.~#?&//=]*)?/gi
         ];
         reg.forEach((e) => {
             let res = content.match(e);
@@ -42,7 +42,7 @@ export default function Thread() {
             url = true;
         });
         return (
-            <div dangerouslySetInnerHTML={{__html:content}}></div> // https://stackoverflow.com/questions/43268825/react-how-to-return-and-string-of-html
+            <div dangerouslySetInnerHTML={{__html:content}}></div>
         )
     }
 

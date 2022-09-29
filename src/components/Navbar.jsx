@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 
 export default function Navbar() {
@@ -9,10 +8,10 @@ export default function Navbar() {
             </div>
             <div id="site-menu">
                 <nav>
-                    <a>Notifications</a>
-                    <a>Messages</a>
-                    <a>Profile</a>
-                    <a>Settings</a>
+                    <a href='#a'>Notifications</a>
+                    <a href='#a'>Messages</a>
+                    <a href='#a'>Profile</a>
+                    <a href='#a'>Settings</a>
                 </nav>
             </div>
             <div className='navbar-account'>
