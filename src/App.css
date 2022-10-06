@@ -14,6 +14,7 @@ body {
   --border-thin: 1px solid rgba(128, 128, 128, 0.13);
 
   --primary: #FFCE4F;
+  --redirection: #0C5BB6;
   --light: #FFF;
   --grey: #AAA;
   --light-grey: #DDD;
@@ -145,9 +146,19 @@ nav > a:hover {
   padding: 1rem;
   border-bottom: var(--border-thin)
 }
+.redirection {
+  font-weight: 600;
+  color: var(--redirection);
+}
+.link {
+  text-decoration: underline;
+}
+.tag {
+  text-decoration: none;
+}
 
 /* ---------- ---------- ---------- */
-/* NOTE ----- Profile ----- */
+/* NOTE ----- Posts ----- */
 /* ---------- ---------- ---------- */
 
 .profile-nav {
@@ -207,6 +218,30 @@ nav > a:hover {
 }
 
 /* ---------- ---------- ---------- */
+/* NOTE ----- Posts ----- */
+/* ---------- ---------- ---------- */
+
+#profile .profile-background {
+  width: 100%;
+  height: 25vh;
+  object-fit: cover;
+}
+#profile .profile-picture {
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+.profile-informations {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.profile-informations *, #profile span {
+  margin: 1%;
+}
+
+/* ---------- ---------- ---------- */
 /* NOTE ----- Login ----- */
 /* ---------- ---------- ---------- */
 
@@ -232,9 +267,4 @@ nav > a:hover {
 }
 .login-form input:focus {
   outline: none;
-}
-.link {
-  text-decoration: none;
-  font-weight: 600;
-  color: rgb(12, 91, 182);
 }

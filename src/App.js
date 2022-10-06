@@ -11,6 +11,7 @@ import Accessbility from './components/Accessbility';
 import Ads from './components/Ads';
 import More from './components/More';
 import Me from './components/Me';
+import TestFile from './components/Testfile';
 
 import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
 import { users } from './data/users';
@@ -34,6 +35,7 @@ function App() {
             <Route path='login' element={<Login />} />
             <Route element={<AppLayout />}>
               <Route path='/' element={<Thread />} />
+              {/* NOTE Create a note only for seen users (in a tweet, reply etc) */}
               {users.map((users) => {
                 return <Route 
                         path={'/' + users.account_name} 
@@ -41,7 +43,6 @@ function App() {
                         key = {users.account_name}
                       />
               })}
-              {/* FIXME Y a-t-il un moyen d'arranger les imports de components pour rendre ça plus intuitif ?*/}
               <Route path='terms' element={<Terms />} />
               <Route path='privacy' element={<Privacy />} />
               <Route path='cookies' element={<Cookies />} />
@@ -49,6 +50,8 @@ function App() {
               <Route path='ads' element={<Ads />} />
               <Route path='more' element={<More />} />
               <Route path='me' element={<Me />} />
+
+              <Route path='test' element={<TestFile />} />
             </Route>
           </Routes>
         </BrowserRouter>

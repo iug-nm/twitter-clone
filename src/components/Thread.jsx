@@ -24,6 +24,7 @@ export default function Thread() {
             /(?:^|[^a-zA-Z0-9_@])(@)(?!\.)([a-zA-Z0-9_.]{1,15})(?:\b(?!@)|$)/g,
             /[-a-zA-Z0-9@:%_+.~#?&/=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_+.~#?&//=]*)?/gi
         ];
+
         reg.forEach((e) => {
             let res = content.match(e);
             if (res != null) {
@@ -33,7 +34,7 @@ export default function Thread() {
                                 + " <a "
                                 + ( url ? "target='_blank'" : '')
                                 + "href='" + href(url, elem)
-                                + "' class='link'>"
+                                + "' class='redirection " + ( url ? "link" : "tag" ) + "'>" //if it's an url apply a link class, else a tag class
                                 + elem.replace(/^(http|https):\/\/www./, '')
                                 + "</a>"
                                 + content[1];
@@ -63,4 +64,4 @@ export default function Thread() {
         })}
         </>
     );
-};
+}
