@@ -12,6 +12,7 @@ import Ads from './components/Ads';
 import More from './components/More';
 import Me from './components/Me';
 import TestFile from './components/Testfile';
+import Void from './components/Void';
 
 import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
 import { users } from './data/users';
@@ -53,6 +54,7 @@ function App() {
 
               <Route path='test' element={<TestFile />} />
             </Route>
+              <Route path='*' element={<Void />} />
           </Routes>
         </BrowserRouter>
     </div>

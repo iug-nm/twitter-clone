@@ -3,7 +3,7 @@ export const users = [
             name: "h",
             img: "https://mtv.mtvnimages.com/uri/mgid:ao:image:mtv.com:647022?quality=0.8&format=jpg&width=1440&height=810&.jpg",
             account_name: "halsey",
-            account_description: "yup",
+            account_description: "it's me ya girl",
             account_background: "https://cdn.pixabay.com/photo/2019/09/06/17/04/woman-4456845_960_720.jpg",
             account_password: "$P$Bp1ylmAsVYhHACHiTgJFocPG/9qSqz.",
     },
@@ -17,7 +17,7 @@ export const users = [
     },
     {
             name: "Eefje Depoortere",
-            img: "", 
+            img: "https://get.wallhere.com/photo/women-headsets-headphones-Sennheiser-Eefje-Depoortere-1162396.jpg", 
             //si pas d'image -> background-color: grey; (c'est un test voir si ça marche donc je n'ai volontairement pas mis d'images) + si pas d'images ajouter une bordure
             account_name: "sjokz",
             account_description: "sheeshn't",

@@ -21,26 +21,32 @@ export default function Thread() {
     const wrap = (content) => {
         let url = false;
         const reg = [
-            /(?:^|[^a-zA-Z0-9_@])(@)(?!\.)([a-zA-Z0-9_.]{1,15})(?:\b(?!@)|$)/g,
-            /[-a-zA-Z0-9@:%_+.~#?&/=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_+.~#?&//=]*)?/gi
+            /(?:^|[^a-zA-Z0-9_@])(@)(?!\.)([a-zA-Z0-9_.]{1,15})(?:\b(?!@)|$)/g, //@
+            /[-a-zA-Z0-9@:%_+.~#?&/=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_+.~#?&//=]*)?/gi, //http / s
+            /(^|\s)#(\w*[a-zA-Z]+\w{2,50})/g, //#
         ];
 
         reg.forEach((e) => {
             let res = content.match(e);
             if (res != null) {
                 res.forEach((elem) => {
+                    if (reg[1].test(elem)) {
+                        url = true;
+                    } else {
+                        url = false;
+                    }
+
                     content = content.split(elem);
                     content = content[0]
                                 + " <a "
                                 + ( url ? "target='_blank'" : '')
                                 + "href='" + href(url, elem)
-                                + "' class='redirection " + ( url ? "link" : "tag" ) + "'>" //if it's an url apply a link class, else a tag class
+                                + "' class='redirection " + ( url ? "link" : "mention" ) + "'>" //if it's an url apply a link class, else a tag class
                                 + elem.replace(/^(http|https):\/\/www./, '')
                                 + "</a>"
                                 + content[1];
                 });
             }
-            url = true;
         });
         return (
             <div dangerouslySetInnerHTML={{__html:content}}></div>
