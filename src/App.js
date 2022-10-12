@@ -36,7 +36,7 @@ function App() {
             <Route path='login' element={<Login />} />
             <Route element={<AppLayout />}>
               <Route path='/' element={<Thread />} />
-              {/* NOTE Create a note only for seen users (in a tweet, reply etc) */}
+              {/* NOTE Create a route only for users encountered while navigating (for example if pass across one's tweet reply etc) */}
               {users.map((users) => {
                 return <Route 
                         path={'/' + users.account_name} 

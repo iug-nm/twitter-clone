@@ -57,7 +57,7 @@ export const posts = [
         post: {
             post_id: "10122022084845",
             post_time: "2022-10-12T08:48:45",
-            post_content: "Je suis un hackeure <Sscript>alert(1)</Script> mais curieusement les balises scripts n'apparaissent pas",
+            post_content: "Je suis un hacker <Sscript>alert(1)</Script> mais curieusement les balises scripts n'apparaissent pas",
             reactions: {
                 comment: 666,
                 retweet: 666,
@@ -90,5 +90,44 @@ export const posts = [
                 star: 4586,
             },
         },
+    },
+    {
+        account_name: "halsey",
+        post: {
+            post_id: "12102022133042",
+            post_time: "2022-10-12T13:31:30",
+            post_content: "this country is fucked up fr",
+            reactions: {
+                comment: 978,
+                retweet: 434,
+                star: 15664,
+            },
+        },
+    },
+    {
+        account_name: "joy_crookes",
+        post: {
+            post_id: "12102022135245",
+            post_time: "2022-10-12T13:52:45",
+            post_content: "ma queen better be comfy rn i tell ya",
+            reactions: {
+                comment: 124,
+                retweet: 971,
+                star: 2345,
+            }
+        }
+    },
+    {
+        account_name: "hackerman",
+        post: {
+            post_id: "12102022135620",
+            post_time: "2022-10-12T13:56:20",
+            post_content: "<img src='x' onerror='alert(1)' />",
+            reactions: {
+                comment: 124,
+                retweet: 971,
+                star: 2345,
+            }
+        }
     },
 ]

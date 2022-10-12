@@ -23,7 +23,11 @@ export default function Controls(props) {
 
     const handleLikes = (liked) => {
         if (!liked) {
-            setLike(likes + 1);
+            setLike((e) => {
+                console.log('oui');
+                console.log(e + 1);
+                return likes + 1;
+            });
             setColor(like_clicked);
         } else {
             setLike(likes - 1);
