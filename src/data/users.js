@@ -32,4 +32,12 @@ export const users = [
             account_background: "https://cdn.pixabay.com/photo/2017/05/07/16/05/cheetah-2292858_960_720.jpg",
             account_password: "$P$Bp1ylmAsVYhHACHAFAZgJFocPG/9qSqz.",
     },
+    {
+            name: "Hackerman 🤓",
+            img: "https://cdn.pixabay.com/photo/2022/09/25/23/28/android-7479380_960_720.png",
+            account_name: "hackerman",
+            account_description: "Anonymous is bae",
+            account_background: "https://cdn.pixabay.com/photo/2022/06/25/08/43/space-7283103_960_720.jpg",
+            account_password: "$P$Bp1yla984ehHACHAFAZgJFocPG/9qSqz.",
+    },
 ]

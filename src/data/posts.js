@@ -53,15 +53,41 @@ export const posts = [
         },
     },
     {
+        account_name: "hackerman",
+        post: {
+            post_id: "10122022084845",
+            post_time: "2022-10-12T08:48:45",
+            post_content: "Je suis un hackeure <Sscript>alert(1)</Script> mais curieusement les balises scripts n'apparaissent pas",
+            reactions: {
+                comment: 666,
+                retweet: 666,
+                star: 666,
+            },
+        },
+    },
+    {
         account_name: "iug_nm",
         post: {
-            post_id: "23092022145953",
-            post_time: "2022-09-23T14:59:45",
-            post_content: "Ayooooo",
+            post_id: "11102022085045",
+            post_time: "2022-10-12T08:50:45",
+            post_content: "Salut la zouz comment ça va",
             reactions: {
                 comment: 0,
                 retweet: 0,
                 star: 1,
+            },
+        },
+    },
+    {
+        account_name: "sjokz",
+        post: {
+            post_id: "12102022085045",
+            post_time: "2022-10-12T08:50:45",
+            post_content: "This is my first tweet !!! i'm so happy 🥰",
+            reactions: {
+                comment: 9,
+                retweet: 156,
+                star: 4586,
             },
         },
     },

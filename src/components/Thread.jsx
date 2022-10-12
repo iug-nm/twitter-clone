@@ -6,6 +6,39 @@ import { posts } from '../data/posts'
 
 export default function Thread() {
 
+    const sanitize = (input) => {
+        let regex = '';
+        const xss = [
+            //escape the / character for later in the regex
+            '<script>',
+            '<\/script>',
+            '<Script>',
+            '<\/Script>',
+            '<iframe>',
+            '<\/iframe>',
+            '<img />',
+            '<img>',
+            '<a>',
+            '</a>',
+            '<A>',
+            '</A>',
+            '<Img />',
+            '<Img>',
+            '</Img>',
+            '</img>',
+        ]
+        
+        xss.forEach((e, i) => {
+                regex += e;
+                if (i !== xss.length - 1) {
+                    regex += '|';
+                }
+        });
+
+        regex = new RegExp('/'+regex+'/', "gi");
+        return input.replace(regex, '$E4F2');
+    }
+
     const href = (url, target) => {
         let res;
         if (!url) {
@@ -41,7 +74,8 @@ export default function Thread() {
                                 + " <a "
                                 + ( url ? "target='_blank'" : '')
                                 + "href='" + href(url, elem)
-                                + "' class='redirection " + ( url ? "link" : "mention" ) + "'>" //if it's an url apply a link class, else a tag class
+                                + "' class='redirection " + ( url ? "link" : "mention" ) + "'>" 
+                                //if it's an url apply a link class, else a tag class
                                 + elem.replace(/^(http|https):\/\/www./, '')
                                 + "</a>"
                                 + content[1];
@@ -55,16 +89,17 @@ export default function Thread() {
 
     return(
         <>
-        {users.map((user, index) => {
-            let content = posts[index];
+        {posts.map((posts) => {
+            let user = users.find(e => e.account_name === posts.account_name);
+
             return(
-                <Article 
-                    key = {index}
-                    id = {content.post.post_time+'-'+index}
+                <Article
+                    key = {posts.post.post_time+user.name}
+                    id = {posts.post.post_time}
                     user = {user}
-                    posts = {content.post.post_time}
-                    content = {wrap(content.post.post_content)}
-                    controls = {content.post.reactions}
+                    posts = {posts.post.post_time}
+                    content = {wrap(sanitize(posts.post.post_content))}
+                    controls = {posts.post.reactions}
                 />
             )
         })}
