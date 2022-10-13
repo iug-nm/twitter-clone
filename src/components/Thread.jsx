@@ -13,8 +13,8 @@ export default function Thread() {
             //escape the / character for later in the regex
             '<script>',
             '<Script>',
-            '<iframe>',
-            '<Iframe>',
+            '<iframe',
+            '<Iframe',
             '<img>',
             '<Img>',
             '<img',

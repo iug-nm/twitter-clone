@@ -18,6 +18,9 @@ import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
 import { users } from './data/users';
 
 const AppLayout = () => (
+  // https://medium.com/cleverprogrammer/twitter-clone-using-reactjs-the-ultimate-guide-74e2b2a06fa7
+  //https://nicotsou.com/react-twitter-clone/
+
   <>
   <Navbar />
   <div className='site-content'>
