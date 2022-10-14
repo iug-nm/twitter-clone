@@ -40,12 +40,4 @@ export const users = [
             account_background: "https://cdn.pixabay.com/photo/2022/09/25/23/28/android-7479380_960_720.png",
             account_password: "$P$Bp1yla984ehHACHAFAZgJFocPG/9qSqz.",
     },
-    {
-            name: "SSW Mata",
-            img: "",
-            account_name: "mata",
-            account_description: "2014 World champion",
-            account_background: "",
-            account_password: "$P$Bp1yla98Z7fZACHAFAZgJFocPG/9qSqz.",
-    },
 ]

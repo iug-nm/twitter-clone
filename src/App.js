@@ -16,6 +16,9 @@ import Void from './components/Void';
 
 import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
 import { users } from './data/users';
+// import { db } from './firebase';
+
+// console.log(db);
 
 const AppLayout = () => (
   // https://medium.com/cleverprogrammer/twitter-clone-using-reactjs-the-ultimate-guide-74e2b2a06fa7
