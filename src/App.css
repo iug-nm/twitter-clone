@@ -2,10 +2,8 @@
 /* ---------- ---------- ---------- */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,400;1,600&display=swap');
 
-* {
-  font-family: 'Montserrat', sans-serif;
-}
 body {
+  font-family: sans-serif;
   box-sizing: border-box;
   list-style: none;
 }
@@ -34,7 +32,8 @@ img,
 .post-user-infos h6,
 .navbar-account h6,
 input[type='submit'],
-.post-controls svg {
+.post-controls svg,
+.tweet-form-submit {
   cursor: pointer;
 }
 .profile-nav,
@@ -143,6 +142,32 @@ nav > a:hover {
 /* NOTE ----- Content ----- */
 /* ---------- ---------- ---------- */
 
+.tweet-form {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+.tweet-form textarea {
+  border: none;
+  width: 100%;
+  outline: none;
+  min-height: 100px;
+  max-height: 250px;
+  max-width: 100%;
+  min-width: 100%;
+  font-size: 1.2rem;
+}
+.tweet-form-submit {
+  padding: 5px 18px;
+  line-height: 28px;
+  width: 5rem;
+  color: var(--light);
+  background-color: var(--primary);
+  border-radius: 50px;
+  border: 0;
+  font-size: 0.9em;
+  font-weight: bold;
+}
 .site-content {
   border: var(--border-thin)
 }
@@ -175,9 +200,6 @@ nav > a:hover {
   width: 50px;
   border-radius: 50%;
   object-fit: cover;
-}
-.profile-photo[src=''] {
-  border: 1px solid var(--void);
 }
 .profile-nav h4 {
   margin: 0 3%;

@@ -1,4 +1,4 @@
-export const posts = [
+export var posts = [
     //BUG pas de mise à jour du nombre si le format reste le même ?
     {
         account_name: "halsey",
@@ -134,7 +134,7 @@ export const posts = [
         account_name: "hackerman",
         post: {
             post_id: "12102022140312",
-            post_time: "2022-10-12T12:00:00",
+            post_time: "2022-10-12T12:30:00",
             post_content: "IFrame <iframe src='x' style='overflow: hidden;'></iframe>",
             reactions: {
                 comment: 124,

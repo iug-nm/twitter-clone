@@ -1,51 +1,13 @@
 /* eslint-disable no-useless-escape */
-import React from 'react';
+import React, { useState } from 'react';
 import Article from './Article';
 
+import { randomId, sanitize } from '../global';
 import { users } from '../data/users'
 import { posts } from '../data/posts'
+import TweetForm from './TweetForm';
 
 export default function Thread() {
-
-    const sanitize = (input) => {
-        let regex = '';
-        const xss = [
-            //escape the / character for later in the regex
-            '<script>',
-            '<Script>',
-            '<iframe',
-            '<Iframe',
-            '<img>',
-            '<Img>',
-            '<img',
-            '<Img',
-            '<a>',
-            '<A>',
-            'onError=',
-            'onerror=',
-            'onError =',
-            'onerror =',
-            '</script>',
-            '</Script>',
-            '</iframe>',
-            '</Iframe>',
-            '</img>',
-            '</Img>',
-            '</a>',
-            '</A>',
-            '/>',
-        ]
-        
-        xss.forEach((e, i) => {
-                regex += e;
-                if (i !== xss.length - 1) {
-                    regex += '|';
-                }
-        });
-
-        regex = new RegExp('/'+regex+'/', "gi");
-        return input.replace(regex, '$E4F2');
-    }
 
     const href = (url, target) => {
         let res;
@@ -95,8 +57,52 @@ export default function Thread() {
         )
     }
 
+    const current_user = {
+        name: "Julius in the Coolius",
+        img: "https://pbs.twimg.com/profile_images/1448753262535004168/dRJQaiqb.jpg",
+        account_name: "iug_nm",
+        account_description: "React & Laravel Enjoyer | player for @team_rewals",
+        account_background: "https://pbs.twimg.com/profile_images/1448753262535004168/dRJQaiqb.jpg",
+        account_password: "$P$Bp1ylmAsVYhHACHAFAZgJFocPG/9qSqz.",
+    }
+
+    const [tweets, setTweets] = useState(posts);
+    const handleTweets = (content) => {
+        const newTweet = {
+            account_name: current_user.account_name,
+            post: {
+                post_id: randomId(),
+                post_time: Date(Date.now()),
+                post_content: content,
+                reactions: {
+                    comment: 0,
+                    retweet: 0,
+                    star: 0,
+                },
+            },
+        }
+        //https://stackoverflow.com/questions/33898512/spread-syntax-vs-rest-parameter-in-es2015-es6
+        //We're passing the handleTweets function on the onSubmit listenner all the way to the TweetButton props / component
+        setTweets(...tweets, newTweet);
+    }
+
+    // let test_array = [];
+    // for (let i = 0; i < 1000; i++) {
+    //     let random = randomId()
+    //     if (test_array.find(e => e === random) !== undefined) {
+    //         throw random;
+    //     } else {
+    //         test_array.push(random);
+    //     }
+    // }
+
+    // console.log(test_array);
+
     return(
         <>
+        <TweetForm 
+            submit = {handleTweets}
+        />
         {posts.map((posts) => {
             let user = users.find(e => e.account_name === posts.account_name);
 

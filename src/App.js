@@ -17,7 +17,6 @@ import Void from './components/Void';
 import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
 import { users } from './data/users';
 // import { db } from './firebase';
-
 // console.log(db);
 
 const AppLayout = () => (
