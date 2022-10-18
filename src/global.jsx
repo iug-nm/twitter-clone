@@ -52,7 +52,7 @@ export function randomId() {
 
     for (let i = 0; i < date.length; i ++) {
         if ((Math.floor(Math.random() * 7) === 1)) {
-            // split the string with i as an index, and add a '-' inbetween them
+            // TODO split the string with i as an index, and add a '-' inbetween them
             date = date.replace(date.charAt(i), randomCharacter());
         }
     }
