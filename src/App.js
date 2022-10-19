@@ -15,9 +15,7 @@ import TestFile from './components/Testfile';
 import Void from './components/Void';
 
 import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
-import { users } from './data/users';
-// import { db } from './firebase';
-// console.log(db);
+import users from './data/users.json';
 
 const AppLayout = () => (
   // https://medium.com/cleverprogrammer/twitter-clone-using-reactjs-the-ultimate-guide-74e2b2a06fa7
@@ -41,13 +39,13 @@ function App() {
             <Route path='login' element={<Login />} />
             <Route element={<AppLayout />}>
               <Route path='/' element={<Thread />} />
-              {/* NOTE Create a route only for users encountered while navigating (for example if pass across one's tweet reply etc) */}
-              {users.map((users) => {
+              {/* TODO Create a route only for users encountered while navigating (for example if pass across one's tweet reply etc) */}
+              {users.map((user) => {
                 return <Route 
-                        path={'/' + users.account_name} 
-                        element = {<Profile user = {users} />} 
-                        key = {users.account_name}
-                      />
+                        path={'/' + user.username}
+                        element = {<Profile user = { user } />}
+                        key = {user.username}
+                        />
               })}
               <Route path='terms' element={<Terms />} />
               <Route path='privacy' element={<Privacy />} />

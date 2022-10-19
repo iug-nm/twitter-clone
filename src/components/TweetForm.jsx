@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import TweetButton from "./TweetButton";
 
-export default function TweetForm({ submit }) {
+export default function TweetForm({ submit, user }) {
 
     const [tweetValue, settweetValue] = useState('');
     const handleTweetValue = (e) => {
@@ -20,9 +20,9 @@ export default function TweetForm({ submit }) {
             onSubmit={handleSubmit}>
             <div className="tweet-form-container">
                 <a href='iug_nm' className='profile-nav'>
-                    <img alt='' src='' className='profile-photo'/>
-                    <h4>Name</h4>
-                    <h6>account_name</h6>
+                    <img alt='' src={user.profile_img} className='profile-photo'/>
+                    <h4>{user.name}</h4>
+                    <h6>{user.username}</h6>
                 </a>
                 <textarea 
                     value={tweetValue}

@@ -1,20 +1,20 @@
 import React from 'react';
 
-export default function Profile(props) {
+export default function Profile({ user }) {
     return(
         <div id='profile'>
-            <img className='profile-background' alt='' src={props.user.account_background}/>
+            <img className='profile-background' alt='' src={user.background_img}/>
             <div className='profile-informations'>
-                <img className='profile-picture' alt='' src={props.user.img} />
+                <img className='profile-picture' alt='' src={user.profile_img} />
                 <h4>
-                    {props.user.name}
+                    {user.name}
                 </h4>
                 <p>
-                    {props.user.account_name}
+                    {user.username}
                 </p>
             </div>
             <span>
-                {props.user.account_description}
+                {user.description}
             </span>
         </div>
     )

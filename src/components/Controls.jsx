@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import { shorten } from '../global';
 import { AiFillHeart, AiOutlineRetweet, AiOutlineComment } from 'react-icons/ai';
 
-// https://react-icons.github.io/react-icons/icons?name=fa
 export default function Controls(props) {
     
     const controls_base = "grey";
@@ -23,11 +23,7 @@ export default function Controls(props) {
 
     const handleLikes = (liked) => {
         if (!liked) {
-            setLike((e) => {
-                console.log('oui');
-                console.log(e + 1);
-                return likes + 1;
-            });
+            setLike(likes + 1)
             setColor(like_clicked);
         } else {
             setLike(likes - 1);
@@ -56,27 +52,6 @@ export default function Controls(props) {
             setReplyColor(controls_base);
         }
         setReplied(!replied);
-    }
-
-    const shorten = (number) => {
-        number = number.toString().replace(/[^0-9.]/g, '');
-        if (number < 1000) {
-            return number;
-        }
-
-        let si = [
-            {v: 1E3, s: "k"},
-            {v: 1E6, s: "m"},
-            {v: 1E9, s: "b"},
-        ];
-        
-        let index;
-        for (index = si.length - 1; index > 0; index--) {
-            if (number >= si[index].v) {
-                break;
-            }
-        }
-        return (number / si[index].v).toFixed(1).replace(/\.0+$|(\.[0-9]*[1-9])0+$/, "$1") + si[index].s;
     }
 
     return(

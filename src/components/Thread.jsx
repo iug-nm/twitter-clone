@@ -2,9 +2,9 @@
 import React, { useState } from 'react';
 import Article from './Article';
 
-import { randomId, sanitize } from '../global';
-import { users } from '../data/users'
-import { posts } from '../data/posts'
+import { randomId, sanitize, JSONfind } from '../global';
+import posts from '../data/posts.json';
+import users from '../data/users.json';
 import TweetForm from './TweetForm';
 
 export default function Thread() {
@@ -59,27 +59,24 @@ export default function Thread() {
 
     const current_user = {
         name: "Julius in the Coolius",
-        img: "https://pbs.twimg.com/profile_images/1448753262535004168/dRJQaiqb.jpg",
-        account_name: "iug_nm",
-        account_description: "React & Laravel Enjoyer | player for @team_rewals",
-        account_background: "https://pbs.twimg.com/profile_images/1448753262535004168/dRJQaiqb.jpg",
-        account_password: "$P$Bp1ylmAsVYhHACHAFAZgJFocPG/9qSqz.",
+        username: "iug_nm",
+        description: "React & Laravel enjoyer | player for @team_rewals",
+        background_img: "https://pbs.twimg.com/profile_images/1448753262535004168/dRJQaiqb.jpg",
+        profile_img: "https://pbs.twimg.com/profile_images/1448753262535004168/dRJQaiqb.jpg"
     }
 
     const [tweets, setTweets] = useState(posts);
     const handleTweets = (content) => {
         const newTweet = {
-            account_name: current_user.account_name,
-            post: {
-                post_id: randomId(),
-                post_time: Date(Date.now()),
-                post_content: content,
-                reactions: {
-                    comment: 0,
-                    retweet: 0,
-                    star: 0,
-                },
-            },
+            id: randomId(),
+            created_on: Date(Date.now()),
+            content: content,
+            user: current_user.username,
+            reactions: {
+                comment: 0,
+                retweet: 0,
+                star: 0
+            }
         }
         //https://stackoverflow.com/questions/33898512/spread-syntax-vs-rest-parameter-in-es2015-es6
         //We're passing the handleTweets function on the onSubmit listenner all the way to the TweetButton props / component
@@ -87,34 +84,33 @@ export default function Thread() {
     }
 
     // let test_array = [];
-    // for (let i = 0; i < 1000; i++) {
+    // for (let i = 0; i < 11; i++) {
     //     let random = randomId()
     //     if (test_array.find(e => e === random) !== undefined) {
     //         throw random;
     //     } else {
     //         test_array.push(random);
     //     }
+    //     console.log(test_array[i]);
     // }
-
-    // console.log(test_array);
 
     return(
         <>
         <TweetForm 
+            user = {current_user}
             submit = {handleTweets}
         />
-        {posts.map((posts) => {
-            let user = users.find(e => e.account_name === posts.account_name);
-
+        {tweets.map((tweet) => {
+            let user = JSONfind(users, "username", tweet.user);
+            // let user = users.find(e => e.username === posts.user);
             return(
-                <Article
-                    key = {posts.post.post_time+user.name}
-                    id = {posts.post.post_time}
-                    user = {user}
-                    posts = {posts.post.post_time}
-                    content = {wrap(sanitize(posts.post.post_content))}
-                    controls = {posts.post.reactions}
-                />
+             <Article
+             key = {tweet.id}
+             user = {user}
+             posts = {tweet}
+             content = {wrap(sanitize(tweet.content))}
+             controls = {tweet.reactions}
+             />
             )
         })}
         </>

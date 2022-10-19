@@ -1,11 +1,11 @@
 import React from 'react';
-import { AiOutlineArrowLeft } from 'react-icons/ai';
+import Icon from './Icon';
 
 export default function Navbar() {
     return(
         <div id="navbar">
             <div id="site-logo">
-                <a href='http://localhost:3000/'><AiOutlineArrowLeft /></a>
+                <Icon />
             </div>
             <div id="site-menu">
                 <nav>

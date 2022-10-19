@@ -1,18 +1,18 @@
 import Controls from './Controls';
 import User from './User';
 
-export default function Article(props) {
+export default function Article({ user, posts, content, controls }) {
 
     return(
         <article className='post'>
            <User 
-                user = {props.user}
-                posts = {props.posts} 
+                user = {user}
+                posts = {posts} 
             />
                 <div className='post-content'>
-                    {props.content}
+                    {content}
                 </div>
-            <Controls controls = {props.controls} />
+            <Controls controls = {controls} />
         </article>
     )
 }

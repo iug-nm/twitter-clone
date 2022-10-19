@@ -1,5 +1,4 @@
 export var posts = [
-    //BUG pas de mise à jour du nombre si le format reste le même ?
     {
         account_name: "halsey",
         post: {
