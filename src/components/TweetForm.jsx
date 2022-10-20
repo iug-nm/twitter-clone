@@ -1,32 +1,31 @@
 import React, { useState } from "react";
 import TweetButton from "./TweetButton";
 
-export default function TweetForm({ submit, user }) {
+export default function TweetForm({ onSubmit, user }) {
 
-    const [tweetValue, settweetValue] = useState('');
-    const handleTweetValue = (e) => {
-        settweetValue(e.target.value);
+    const [editorValue, setEditorValue] = useState('');
+
+    const handleEditorValueChange = (e) => {
+        setEditorValue(e.target.value);
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        submit(tweetValue);
-        settweetValue('');
+        onSubmit(editorValue);
+        setEditorValue('');
     }
-
+    
     return(
         <form 
-            className="tweet-form"
-            onSubmit={handleSubmit}>
+            onSubmit={handleSubmit}
+            className="tweet-form">
             <div className="tweet-form-container">
                 <a href='iug_nm' className='profile-nav'>
                     <img alt='' src={user.profile_img} className='profile-photo'/>
-                    <h4>{user.name}</h4>
-                    <h6>{user.username}</h6>
                 </a>
                 <textarea 
-                    value={tweetValue}
-                    onChange={handleTweetValue}
+                    value={editorValue}
+                    onChange={handleEditorValueChange}
                     placeholder="What's happening ?"/>
             </div>
             <TweetButton 

@@ -2,25 +2,16 @@ import React, { useState } from 'react';
 import { shorten } from '../global';
 import { AiFillHeart, AiOutlineRetweet, AiOutlineComment } from 'react-icons/ai';
 
-export default function Controls(props) {
+export default function Controls({ controls }) {
     
     const controls_base = "grey";
     const like_clicked = "#e11d48";
     const retweet_clicked = "#34d399";
     const reply_clicked = '#0067F0';
 
-    const [likes, setLike] = useState(props.controls.star);
+    const [likes, setLike] = useState(controls.star);
     const [liked, setLiked] = useState(false);
     const [likedColor, setColor] = useState(controls_base);
-
-    const [retweets, setRetweet] = useState(props.controls.retweet);
-    const [retweeted, setRetweeted] = useState(false);
-    const [retweetColor, setRetweetColor] = useState(controls_base);
-
-    const [reply, setReply] = useState(props.controls.comment);
-    const [replied, setReplied] = useState(false);
-    const [replyColor, setReplyColor] = useState(controls_base);
-
     const handleLikes = (liked) => {
         if (!liked) {
             setLike(likes + 1)
@@ -32,10 +23,13 @@ export default function Controls(props) {
         setLiked(!liked);
     }
 
-    const handleRetweets = (retweeted) => {
+    const [retweets, setRetweet] = useState(controls.retweet);
+    const [retweeted, setRetweeted] = useState(false);
+    const [retweetColor, setRetweetColor] = useState(controls_base);
+    const handleRetweet = (retweeted) => {
         if (!retweeted) {
             setRetweet(retweets + 1);
-            setRetweetColor(retweet_clicked)
+            setRetweetColor(retweet_clicked);
         } else {
             setRetweet(retweets - 1);
             setRetweetColor(controls_base);
@@ -43,7 +37,10 @@ export default function Controls(props) {
         setRetweeted(!retweeted);
     }
 
-    const handleReplies = (replied) => {
+    const [reply, setReply] = useState(controls.comment);
+    const [replied, setReplied] = useState(false);
+    const [replyColor, setReplyColor] = useState(controls_base);
+    const handleReply = (replied) => {
         if (!replied) {
             setReply(reply + 1);
             setReplyColor(reply_clicked);
@@ -51,14 +48,14 @@ export default function Controls(props) {
             setReply(reply - 1);
             setReplyColor(controls_base);
         }
-        setReplied(!replied);
+        setReplied(!replied)
     }
 
     return(
         <div className="post-controls">
-            <span onClick={() => handleReplies(replied)} style={{ color: replyColor}}>{shorten(reply)} <AiOutlineComment /></span>
-            <span onClick={() => handleRetweets(retweeted)} style={{ color: retweetColor}}>{shorten(retweets)} <AiOutlineRetweet /></span>
-            <span onClick={() => handleLikes(liked)} style={{ color: likedColor}}>{shorten(likes)} <AiFillHeart /></span>
+            <span onClick={() => handleReply(replied)} style={{ color: replyColor }}>{shorten(reply)} <AiOutlineComment /></span>
+            <span onClick={() => handleRetweet(retweeted)} style={{ color: retweetColor }}>{shorten(retweets)} <AiOutlineRetweet /></span>
+            <span onClick={() => handleLikes(liked)} style={{ color: likedColor }}>{shorten(likes)} <AiFillHeart /></span>
         </div>
     )
 }

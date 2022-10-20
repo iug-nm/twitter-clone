@@ -1,10 +1,9 @@
 import React from "react";
 
-export default function TweetButton({ content, submit }) {
+export default function TweetButton({ content }) {
 
     return(
         <button 
-            onSubmit={submit}
             className="tweet-form-submit"
         >{content}</button>
     )

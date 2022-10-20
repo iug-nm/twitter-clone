@@ -6,6 +6,7 @@ import { randomId, sanitize, JSONfind } from '../global';
 import posts from '../data/posts.json';
 import users from '../data/users.json';
 import TweetForm from './TweetForm';
+import { current_user } from '../App';
 
 export default function Thread() {
 
@@ -42,7 +43,7 @@ export default function Thread() {
                     content = content.split(elem);
                     content = content[0]
                                 + " <a "
-                                + ( url ? "target='_blank'" : '')
+                                + (url ? "target='_blank'" : '')
                                 + "href='" + href(url, elem)
                                 + "' class='redirection " + ( url ? "link" : "mention" ) + "'>" 
                                 //if it's an url apply a link class, else a tag class
@@ -55,14 +56,6 @@ export default function Thread() {
         return (
             <div dangerouslySetInnerHTML={{__html:content}}></div>
         )
-    }
-
-    const current_user = {
-        name: "Julius in the Coolius",
-        username: "iug_nm",
-        description: "React & Laravel enjoyer | player for @team_rewals",
-        background_img: "https://pbs.twimg.com/profile_images/1448753262535004168/dRJQaiqb.jpg",
-        profile_img: "https://pbs.twimg.com/profile_images/1448753262535004168/dRJQaiqb.jpg"
     }
 
     const [tweets, setTweets] = useState(posts);
@@ -79,30 +72,25 @@ export default function Thread() {
             }
         }
         //https://stackoverflow.com/questions/33898512/spread-syntax-vs-rest-parameter-in-es2015-es6
-        //We're passing the handleTweets function on the onSubmit listenner all the way to the TweetButton props / component
-        setTweets(...tweets, newTweet);
+        if (tweets.find(e => e === newTweet.id) !== undefined) {
+            throw newTweet;
+        } else {
+            // FIXME
+            // Using the hook setter produces an error on the mapping of the tweets,
+            // Because this mapping is happening in the same component ?
+            // setTweets(...tweets, newTweet);
+            tweets.push(newTweet)
+            console.log(tweets);
+        }
     }
-
-    // let test_array = [];
-    // for (let i = 0; i < 11; i++) {
-    //     let random = randomId()
-    //     if (test_array.find(e => e === random) !== undefined) {
-    //         throw random;
-    //     } else {
-    //         test_array.push(random);
-    //     }
-    //     console.log(test_array[i]);
-    // }
-
     return(
         <>
         <TweetForm 
+            onSubmit = {handleTweets}
             user = {current_user}
-            submit = {handleTweets}
         />
         {tweets.map((tweet) => {
             let user = JSONfind(users, "username", tweet.user);
-            // let user = users.find(e => e.username === posts.user);
             return(
              <Article
              key = {tweet.id}

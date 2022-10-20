@@ -46,7 +46,7 @@
     {
         "id": "7bct8400df37",
         "created_on": "2022-09-11T12:00:00",
-        "content": "Script <script>alert(1)</script>",
+        "content": "SCRIPT <script>alert(1)</script>",
         "user": "hackerman",
         "reactions": {
             "comment": "666",
@@ -107,17 +107,6 @@
             "comment": "124",
             "retweet": "971",
             "star": "2345"
-        }
-    },
-    {
-        "id": "2ty73509qD0",
-        "created_on": "2022-10-18T12:00:00",
-        "content": "IFrame <iframe src='x' style='overflow: hidden;'></iframe>",
-        "user": "hackerman",
-        "reactions": {
-            "comment": "978",
-            "retweet": "434",
-            "star": "15664"
         }
     }
 ]

@@ -17,6 +17,15 @@ import Void from './components/Void';
 import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
 import users from './data/users.json';
 
+
+export const current_user = {
+  name: "Julius in the Coolius",
+  username: "iug_nm",
+  description: "React & Laravel enjoyer | player for @team_rewals",
+  background_img: "https://pbs.twimg.com/profile_images/1448753262535004168/dRJQaiqb.jpg",
+  profile_img: "https://pbs.twimg.com/profile_images/1448753262535004168/dRJQaiqb.jpg"
+}
+
 const AppLayout = () => (
   // https://medium.com/cleverprogrammer/twitter-clone-using-reactjs-the-ultimate-guide-74e2b2a06fa7
   //https://nicotsou.com/react-twitter-clone/

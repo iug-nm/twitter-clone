@@ -4,14 +4,18 @@ export const sanitize = (input) => {
         //escape the / character for later in the regex
         '<script>',
         '<Script>',
+        '<iframe>',
+        '<Iframe>',
         '<iframe',
-        '<Iframe',
+        '<IFrame',
         '<img>',
         '<Img>',
         '<img',
         '<Img',
         '<a>',
         '<A>',
+        '<a',
+        '<A',
         'onError=',
         'onerror=',
         'onError =',
@@ -35,7 +39,7 @@ export const sanitize = (input) => {
     });
 
     regex = new RegExp('/'+regex+'/', "gi");
-    return input.replace(regex, '$E4F2');
+    return input.replace(regex, '[]');
 }
 
 const randomCharacter = () => {
