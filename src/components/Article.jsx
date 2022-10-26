@@ -1,10 +1,10 @@
 import Controls from './Controls';
 import User from './User';
 
-export default function Article({ user, posts, content, controls }) {
+export default function Article({ id, user, posts, content, controls }) {
 
     return(
-        <article className='post'>
+        <article className='post' id={id}>
            <User 
                 user = {user}
                 posts = {posts} 

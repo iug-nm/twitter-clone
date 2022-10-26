@@ -46,7 +46,6 @@ export default function Thread() {
                                 + (url ? "target='_blank'" : '')
                                 + "href='" + href(url, elem)
                                 + "' class='redirection " + ( url ? "link" : "mention" ) + "'>" 
-                                //if it's an url apply a link class, else a tag class
                                 + elem.replace(/^(http|https):\/\/www./, '')
                                 + "</a>"
                                 + content[1];
@@ -71,16 +70,13 @@ export default function Thread() {
                 star: 0
             }
         }
-        //https://stackoverflow.com/questions/33898512/spread-syntax-vs-rest-parameter-in-es2015-es6
         if (tweets.find(e => e === newTweet.id) !== undefined) {
             throw newTweet;
         } else {
-            // FIXME
-            // Using the hook setter produces an error on the mapping of the tweets,
-            // Because this mapping is happening in the same component ?
-            // setTweets(...tweets, newTweet);
-            tweets.push(newTweet)
-            console.log(tweets);
+            setTweets((old) => {
+            //https://stackoverflow.com/questions/33898512/spread-syntax-vs-rest-parameter-in-es2015-es6
+                return [...old, newTweet];
+            });
         }
     }
     return(
@@ -89,11 +85,14 @@ export default function Thread() {
             onSubmit = {handleTweets}
             user = {current_user}
         />
-        {tweets.map((tweet) => {
+        {tweets.sort((a, b) => {
+            return a.created_on < b.created_on
+        }).map((tweet) => {
             let user = JSONfind(users, "username", tweet.user);
             return(
              <Article
              key = {tweet.id}
+             id = {tweet.id}
              user = {user}
              posts = {tweet}
              content = {wrap(sanitize(tweet.content))}
