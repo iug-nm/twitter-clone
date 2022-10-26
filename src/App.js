@@ -27,8 +27,6 @@ export const current_user = {
 }
 
 const AppLayout = () => (
-  // https://medium.com/cleverprogrammer/twitter-clone-using-reactjs-the-ultimate-guide-74e2b2a06fa7
-  //https://nicotsou.com/react-twitter-clone/
 
   <>
   <Navbar />
@@ -74,3 +72,10 @@ function App() {
 }
 
 export default App;
+
+// TODO Post des images
+// TODO Retweets
+// TODO Limit tweets loading & load more button
+// TODO Share
+// TODO Replies
+// FIXME Le counter de likes etc
