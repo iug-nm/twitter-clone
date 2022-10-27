@@ -8,10 +8,6 @@ export const sanitize = (input) => {
         '<Iframe>',
         '<iframe',
         '<IFrame',
-        '<img>',
-        '<Img>',
-        '<img',
-        '<Img',
         '<a>',
         '<A>',
         '<a',
@@ -24,8 +20,6 @@ export const sanitize = (input) => {
         '</Script>',
         '</iframe>',
         '</Iframe>',
-        '</img>',
-        '</Img>',
         '</a>',
         '</A>',
         '/>',
@@ -50,20 +44,20 @@ const randomCharacter = () => {
 }
 
 export const randomId = () => {
-    let date = Date.now();
+    let identifier = Date.now().toString();
     let number = Math.random();
-    date = Math.floor(date * number).toString();
+    identifier = Math.floor(identifier * number).toString();
 
-    for (let i = 0; i < date.length; i ++) {
+    for (let i = 0; i < identifier.length; i ++) {
         if ((Math.floor(Math.random() * 3) === 1)) {
             if ((Math.floor(Math.random() * 4) === 1)) {
-                date = date.replace(date.charAt(i), randomCharacter().toUpperCase());
+                identifier = identifier.replace(identifier.charAt(i), randomCharacter().toUpperCase());
             } else {
-                date = date.replace(date.charAt(i), randomCharacter());
+                identifier = identifier.replace(identifier.charAt(i), randomCharacter());
             }
         }
     }
-    return date;
+    return identifier;
 }
 
 export const JSONfind = (data, target, value) => {
@@ -79,8 +73,9 @@ export const timeformat = (time)  => {
     let post_time = new Date(Date.parse(time));
     let difference = current_time - post_time
     var res;
-
-    if (difference > 1000 && difference < 60000) { //second
+    if (difference < 1000) {
+        res = `just now`;
+    } else if (difference > 1000 && difference < 60000) { //second
         res = Math.floor(difference / 1000) + 's';
     } else if (difference < 3600000) { //minute
         res = Math.floor(difference / 1000 / 60) + 'm';

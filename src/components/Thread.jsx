@@ -3,10 +3,11 @@ import React, { useState } from 'react';
 import Article from './Article';
 
 import { randomId, sanitize, JSONfind } from '../global';
-import posts from '../data/posts.json';
-import users from '../data/users.json';
 import TweetForm from './TweetForm';
 import { current_user } from '../App';
+
+import posts from '../data/posts.json';
+import users from '../data/users.json';
 
 export default function Thread() {
 
@@ -71,7 +72,8 @@ export default function Thread() {
             }
         }
         if (tweets.find(e => e === newTweet.id) !== undefined) {
-            throw newTweet;
+            console.warn("Failed to produce a unique ID Key for the tweet");
+            console.error(newTweet);
         } else {
             setTweets((old) => {
             //https://stackoverflow.com/questions/33898512/spread-syntax-vs-rest-parameter-in-es2015-es6
