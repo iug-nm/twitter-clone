@@ -40,15 +40,31 @@ const randomCharacter = () => {
     const alphabet = [
         "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
     ];
-    return alphabet[(Math.floor(Math.random() * 25))];
+    return alphabet[Math.floor(Math.random() * 25)];
 }
 
 export const randomId = () => {
-    let identifier = Date.now().toString();
-    let number = Math.random();
+    const IDlength = 27; //split the chain every 9 chars to add a '-' ?
+    let identifier = Date.now() * 13
+    let number = Math.random() * 13;
     identifier = Math.floor(identifier * number).toString();
 
+    //if the id is either not long enough or too long, fill it with random numbers or truncate it
+    if (identifier.length < IDlength) {
+        let missing = IDlength - identifier.length;
+        let char = '';
+
+        //looping missing chars
+        for (let i = 0; i < missing; i++) {
+                char += Math.floor(Math.random() * 9);
+        }
+        identifier = (identifier + char);
+    } else if (identifier.length > IDlength) {
+        identifier += identifier.substr(0, IDlength);
+    }
+
     for (let i = 0; i < identifier.length; i ++) {
+        //for each chars, randomize it to be a letter, an uppercased letter or a number
         if ((Math.floor(Math.random() * 3) === 1)) {
             if ((Math.floor(Math.random() * 4) === 1)) {
                 identifier = identifier.replace(identifier.charAt(i), randomCharacter().toUpperCase());
@@ -57,7 +73,14 @@ export const randomId = () => {
             }
         }
     }
-    return identifier;
+
+    //inserting a '-' after every element of they array (but replacing the last insert with blank)
+    let res = '';
+    identifier.match(/.{1,9}/g).forEach((e) => {
+        res += e + '-';
+    });
+    return res.replace(/.$/, '');
+    // TODO Trouver un moyen de tester un très grand nombre d'occurrence de cette fonction (ou de pouvoir tester / calculer si elle est unique)
 }
 
 export const JSONfind = (data, target, value) => {

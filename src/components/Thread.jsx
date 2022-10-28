@@ -71,6 +71,7 @@ export default function Thread() {
                 star: 0
             }
         }
+
         if (tweets.find(e => e === newTweet.id) !== undefined) {
             console.warn("Failed to produce a unique ID Key for the tweet");
             console.error(newTweet);
