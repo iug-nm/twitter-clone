@@ -44,7 +44,8 @@ const randomCharacter = () => {
 }
 
 export const randomId = () => {
-    const IDlength = 27; //split the chain every 9 chars to add a '-' ?
+    //approx 600.000.000.000.000.000.000.000.000 of possibilities
+    const IDlength = 27;
     let identifier = Date.now() * 13
     let number = Math.random() * 13;
     identifier = Math.floor(identifier * number).toString();
@@ -80,7 +81,17 @@ export const randomId = () => {
         res += e + '-';
     });
     return res.replace(/.$/, '');
-    // TODO Trouver un moyen de tester un très grand nombre d'occurrence de cette fonction (ou de pouvoir tester / calculer si elle est unique)
+
+    // Testing the function
+    // for (let i = 0; i < 1000000; i++) {
+    //     let random = randomId(27);
+    //     if (test_array.find(e => e === random) !== undefined) {
+    //         console.error(random);
+    //     } else {
+    //         test_array.push(random);
+    //     }
+    //     console.log(i + ' ' + test_array[i]);
+    // }
 }
 
 export const JSONfind = (data, target, value) => {

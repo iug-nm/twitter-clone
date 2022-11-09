@@ -59,11 +59,12 @@ export default function Thread() {
     }
 
     const [tweets, setTweets] = useState(posts);
-    const handleTweets = (content) => {
+    const handleTweets = (content, media) => {
         const newTweet = {
             id: randomId(),
             created_on: Date(Date.now()),
             content: content,
+            media: media,
             user: current_user.username,
             reactions: {
                 comment: 0,
@@ -74,7 +75,8 @@ export default function Thread() {
 
         if (tweets.find(e => e === newTweet.id) !== undefined) {
             console.warn("Failed to produce a unique ID Key for the tweet");
-            console.error(newTweet);
+            console.error(newTweet.id);
+            newTweet.id = randomId();
         } else {
             setTweets((old) => {
             //https://stackoverflow.com/questions/33898512/spread-syntax-vs-rest-parameter-in-es2015-es6
@@ -99,6 +101,7 @@ export default function Thread() {
              user = {user}
              posts = {tweet}
              content = {wrap(sanitize(tweet.content))}
+             media = {tweet.media}
              controls = {tweet.reactions}
              />
             )
