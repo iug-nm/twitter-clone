@@ -11,7 +11,8 @@ export default function Article({ id, user, posts, content, media, controls }) {
             />
                 <div className='post-content'>
                     {content}
-                    {media.length > 0 ? <img src={media} alt=''/> : <></>}
+                    {/* https://mathiasbynens.github.io/rel-noopener/#recommendations */}
+                    {media.length > 0 ? <a href={media} target='_blank' rel="noreferrer"><img src={media} alt=''/></a> : <></>}
                 </div>
             <Controls controls = {controls} />
         </article>
