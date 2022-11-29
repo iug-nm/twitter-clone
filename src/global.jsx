@@ -107,6 +107,7 @@ export const timeformat = (time)  => {
     let post_time = new Date(Date.parse(time));
     let difference = current_time - post_time
     var res;
+
     if (difference < 1000) {
         res = `just now`;
     } else if (difference > 1000 && difference < 60000) { //second
@@ -142,4 +143,51 @@ export const shorten = (number) => {
         }
     }
     return (number / si[index].v).toFixed(1).replace(/\.0+$|(\.[0-9]*[1-9])0+$/, "$1") + si[index].s;
+}
+
+export const href = (url, target) => {
+    let res;
+    if (!url) {
+        res = target.replace('@', '');
+    } else if (!/^(http|https):\/\/www./.test(target)) {
+        res = 'https://'+target;
+    } else {
+        res = target;
+    }
+    return res;
+}
+
+export const wrap = (content) => {
+    let url = false;
+    const reg = [
+        /(?:^|[^a-zA-Z0-9_@])(@)(?!\.)([a-zA-Z0-9_.]{1,15})(?:\b(?!@)|$)/g, //@
+        /[-a-zA-Z0-9@:%_+.~#?&/=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_+.~#?&//=]*)?/gi, //http / s
+        /(^|\s)#(\w*[a-zA-Z]+\w{2,50})/g, //#
+    ];
+
+    reg.forEach((e) => {
+        let res = content.match(e);
+        if (res != null) {
+            res.forEach((elem) => {
+                if (reg[1].test(elem)) {
+                    url = true;
+                } else {
+                    url = false;
+                }
+
+                content = content.split(elem);
+                content = content[0]
+                            + " <a "
+                            + (url ? "target='_blank'" : '')
+                            + "href='" + href(url, elem)
+                            + "' class='redirection " + ( url ? "link" : "mention" ) + "'>" 
+                            + elem.replace(/^(http|https):\/\/www./, '')
+                            + "</a>"
+                            + content[1];
+            });
+        }
+    });
+    return (
+        <div dangerouslySetInnerHTML={{__html:content}}></div>
+    )
 }

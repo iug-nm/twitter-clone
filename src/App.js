@@ -73,8 +73,7 @@ function App() {
 
 export default App;
 
-// TODO Post des images
-//  NOTE On drag picture, create img element w/ properties and attach it to the tweet
+// TODO Redesigner les cards des evenements
 // TODO Retweets
 // TODO Limit tweets loading & load more button
 // TODO Share

@@ -1,4 +1,5 @@
 import React from 'react';
+import { sanitize, wrap } from '../global';
 
 export default function Profile({ user }) {
     return(
@@ -14,7 +15,7 @@ export default function Profile({ user }) {
                 </p>
             </div>
             <span>
-                {user.description}
+                {wrap(sanitize(user.description))}
             </span>
         </div>
     )
